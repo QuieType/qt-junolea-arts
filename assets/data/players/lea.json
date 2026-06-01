@@ -12758,7 +12758,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "NEUTRAL",
-                        "damageFactor": 1,
+                        "damageFactor": 0.8,
                         "reverse": false,
                         "guardable": "",
                         "skillBonus": "MELEE_DMG"
@@ -12809,7 +12809,7 @@
                     "type": "SHOW_EFFECT",
                     "effect": {
                         "sheet": "chakram",
-                        "name": "chakramSpin"
+                        "name": "chakramSpinSilent"
                     },
                     "offset": {
                         "x": 0,
@@ -12837,7 +12837,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "NEUTRAL",
-                        "damageFactor": 1,
+                        "damageFactor": 0.8,
                         "reverse": false,
                         "guardable": "",
                         "skillBonus": "MELEE_DMG"
@@ -12855,7 +12855,7 @@
                     "forceTime": false,
                     "rotateSpeed": 2,
                     "missReactTime": 0,
-                    "collideCancel": 0,
+                    "collideCancel": 1,
                     "type": "MOVE_TO_DISTANCE"
                 },
                 {
@@ -12864,6 +12864,13 @@
                 },
                 {
                     "type": "STOP_REPEATING_FORCE"
+                },
+                {
+                    "volume": 1,
+                    "global": false,
+                    "loop": false,
+                    "type": "PLAY_SOUND",
+                    "sound": "media/audio/sfx/shoot/weapon/chakram-catch.ogg"
                 }
             ],
             "invisible": false,
@@ -12878,9 +12885,9 @@
             },
             "config": {
                 "collType": "PROJECTILE",
-                "accelSpeed": 5,
+                "accelSpeed": 0.8,
                 "airFriction": 1,
-                "maxVel": 500,
+                "maxVel": 1000,
                 "zGravityFactor": 0,
                 "bounciness": 0.0001
             },
