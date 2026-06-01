@@ -36,28 +36,6 @@
     "EFFECTS": {
         "chakramSpin": [
             {
-                "volume": 1,
-                "global": false,
-                "loop": false,
-                "type": "PLAY_SOUND",
-                "sound": "media/audio/sfx/shoot/weapon/chakram-throw - 01.ogg"
-            },
-            {
-                "useTargetAngle": false,
-                "pAlpha": {
-                    "init": 1,
-                    "start": {
-                        "value": 1
-                    }
-                },
-                "type": "PLAY_ANIM",
-                "anim": "CHAKRAM_SPIN",
-                "moveWithTarget": 1,
-                "cancelable": true
-            }
-        ],
-        "chakramSpinSilent": [
-            {
                 "useTargetAngle": false,
                 "pAlpha": {
                     "init": 1,
