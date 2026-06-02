@@ -12724,12 +12724,11 @@
                     "type": "SET_ACCEL_SPEED"
                 },
                 {
-                    "volume": 1,
                     "global": false,
                     "loop": false,
                     "type": "PLAY_SOUND",
                     "sound": "media/audio/sfx/shoot/weapon/chakram-throw - 01.ogg"
-                },
+                },  
                 {
                     "time": 0.1,
                     "type": "WAIT"
@@ -12854,7 +12853,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "NEUTRAL",
-                        "damageFactor": 0.8,
+                        "damageFactor": 1,
                         "reverse": false,
                         "guardable": "",
                         "skillBonus": "MELEE_DMG"
@@ -12868,7 +12867,241 @@
                 {
                     "min": 0,
                     "max": 16,
-                    "maxTime": 1,
+                    "maxTime": 3,
+                    "forceTime": false,
+                    "rotateSpeed": 2,
+                    "missReactTime": 0,
+                    "collideCancel": 1,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "group": "chakram",
+                    "type": "CLEAR_EFFECTS"
+                },
+                {
+                    "type": "STOP_REPEATING_FORCE"
+                },
+                {
+                    "type": "DO_ACTION",
+                    "keepState": false,
+                    "immediately": true,
+                    "wait": false,
+                    "repeating": false,
+                    "entity": {
+                        "player": true
+                    },
+                    "action": [
+                        {
+                            "volume": 1,
+                            "global": false,
+                            "loop": false,
+                            "type": "PLAY_SOUND",
+                            "sound": "media/audio/sfx/shoot/weapon/chakram-catch.ogg"
+                        },           
+                        {
+                            "wait": true,
+                            "viaWalkConfig": false,
+                            "type": "SHOW_ANIMATION",
+                            "anim": "attackEndRev"
+                        },
+                        {
+                            "wait": 0.4
+                        },
+                        {
+                            "type": "CLEAR_ANIMATION"
+                        }
+                    ]
+                },
+                {
+                    "type": "SET_ATTRIB_BOOL",
+                    "changeConnected": "PROXY_OWNER",
+                    "name": "chakramOut",
+                    "value": false
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 4
+            },
+            "config": {
+                "collType": "PROJECTILE",
+                "accelSpeed": 1,
+                "airFriction": 1,
+                "maxVel": 1000,
+                "zGravityFactor": 0,
+                "bounciness": 0.0001
+            },
+            "type": "GENERIC"
+        },
+        "ad-chakramFar": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [        
+                {
+                    "type": "SET_ATTRIB_BOOL",
+                    "changeConnected": "PROXY_OWNER",
+                    "name": "chakramOut",
+                    "value": true
+                },
+                {
+                    "value": 600,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "value": 0.8,
+                    "type": "SET_ACCEL_SPEED"
+                },
+                {
+                    "global": false,
+                    "loop": false,
+                    "type": "PLAY_SOUND",
+                    "sound": "media/audio/sfx/shoot/weapon/chakram-throw - 01.ogg"
+                },  
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "duration": -1,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "saw",
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "chakram",
+                        "name": "chakramSpin"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 8,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 5,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": true,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "NEUTRAL",
+                        "damageFactor": 1,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "RANGED_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 3,
+                    "collideCancel": 1,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "type": "STOP_REPEATING_FORCE"
+                },
+                {
+                    "time": 0.12,
+                    "type": "WAIT"
+                },
+                {
+                    "time": 0,
+                    "turn": 0.5,
+                    "random": 0,
+                    "type": "ROTATE_FACE"
+                },
+                {
+                    "kind": "PROXY_OWNER",
+                    "type": "SET_TEMP_TARGET"
+                },
+                {
+                    "group": "saw",
+                    "type": "CLEAR_EFFECTS"
+                },
+                {
+                    "duration": -1,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "chakram",
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "chakram",
+                        "name": "chakramSpin"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 8,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 5,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": true,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "NEUTRAL",
+                        "damageFactor": 1,
+                        "reverse": false,
+                        "guardable": "",
+                        "skillBonus": "RANGED_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "min": 0,
+                    "max": 16,
+                    "maxTime": 6,
                     "forceTime": false,
                     "rotateSpeed": 2,
                     "missReactTime": 0,
@@ -12934,7 +13167,7 @@
                 "collType": "PROJECTILE",
                 "accelSpeed": 0.8,
                 "airFriction": 1,
-                "maxVel": 1000,
+                "maxVel": 800,
                 "zGravityFactor": 0,
                 "bounciness": 0.0001
             },
@@ -12953,11 +13186,16 @@
                     "type": "SET_ACCEL_SPEED"
                 },
                 {
-                    "volume": 1,
                     "global": false,
                     "loop": false,
-                    "type": "PLAY_SOUND",
-                    "sound": "media/audio/sfx/shoot/weapon/chakram-throw - 01.ogg"
+                    "speed": 1.2,
+                    "type": "PLAY_RANDOM_SOUND",
+                    "sounds": [
+                        "media/audio/sfx/shoot/weapon/chakram-throw - 01.ogg",
+                        "media/audio/sfx/shoot/weapon/chakram-throw - 02.ogg",
+                        "media/audio/sfx/shoot/weapon/chakram-throw - 03.ogg",
+                        "media/audio/sfx/shoot/weapon/chakram-throw - 04.ogg"
+                    ]
                 },              
                 {
                     "time": 0.05,
@@ -13084,17 +13322,6 @@
                 "status": false,
                 "steps": [
                     {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "!entity.attrib.chakramOut",
-                        "thenStep": [
-                            {
-                                "type": "GOTO_LABEL",
-                                "name": "end"
-                            }
-                        ]
-                    },
-                    {
                         "type": "SET_PLAYER_ACTION_BLOCK",
                         "blockData": {
                             "dash": 0.05,
@@ -13110,7 +13337,7 @@
                         "anim": "attackRev"
                     },
                     {
-                        "duration": 0.2,
+                        "duration": 0.1,
                         "type": "SHOOT_PROXY_RANGE",
                         "proxy": "ad-chakram"
                     },
@@ -13136,7 +13363,7 @@
                     {
                         "withElse": false,
                         "type": "IF",
-                        "condition": "!entity.attrib.chakramOut",
+                        "condition": "entity.attrib.chakramOut == false",
                         "thenStep": [
                             {
                                 "type": "GOTO_LABEL",
@@ -13182,84 +13409,7 @@
                 "dmgType": "",
                 "stunType": "",
                 "status": false,
-                "steps": [
-                    {
-                        "type": "SET_PLAYER_ACTION_BLOCK",
-                        "blockData": {
-                            "dash": 0,
-                            "charge": 0.3,
-                            "action": 0.7,
-                            "move": 0.8,
-                            "reaim": 0.9
-                        }
-                    },
-                    {
-                        "followUp": "attackEnd",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackFinisher"
-                    },
-                    {
-                        "sweepType": "SPHEROMANCER_FINISHER",
-                        "reversed": false,
-                        "faceCount": 8,
-                        "flipLeftFace": false,
-                        "type": "COMBAT_SWEEP"
-                    },
-                    {
-                        "value": 200,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "value": 3,
-                        "type": "SET_ACCEL_SPEED"
-                    },
-                    {
-                        "time": 0.15,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_FORWARD"
-                    },
-                    {
-                        "value": 50,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "dir": {
-                            "actorAttrib": "dashDir"
-                        },
-                        "time": 0.1,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DIR"
-                    },
-                    {
-                        "baseStrength": 2,
-                        "type": "SPAWN_ASSAULT"
-                    },
-                    {
-                        "dir": {
-                            "actorAttrib": "dashDir"
-                        },
-                        "time": 0.1,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.65,
-                        "type": "WAIT"
-                    },
-                    {
-                        "followUp": "idle",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "preIdle"
-                    },
-                    {
-                        "time": 0.05,
-                        "type": "WAIT"
-                    }
-                ]
+                "steps": []
             },
             "AIM_START": {
                 "dmgType": "",
@@ -13305,86 +13455,65 @@
                     {
                         "type": "SET_PLAYER_ACTION_BLOCK",
                         "blockData": {
-                            "dash": 0,
-                            "action": 0.18,
+                            "dash": 0.05,
+                            "action": 0.22,
                             "move": 0.3,
                             "reaim": 0.4
                         }
                     },
                     {
-                        "charged": false,
-                        "type": "SHOW_THROW_FX"
-                    },
-                    {
-                        "elementProxy": "QUICK",
-                        "type": "SHOOT_PROXY_PLAYER"
-                    },
-                    {
-                        "followUp": "throwEnd",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwShort"
+                        "anim": "attackRev"
                     },
                     {
-                        "value": 80,
-                        "type": "SET_SPEED"
+                        "duration": 0.1,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "ad-chakramFar"
                     },
                     {
-                        "dir": {
-                            "actorAttrib": "dashDir"
-                        },
-                        "time": 0.1,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.4,
+                        "time": 0.40,
                         "type": "WAIT"
+                    },
+                    {
+                        "type": "LABEL",
+                        "name": "end"
                     }
                 ]
             },
             "THROW_NORMAL_REV": {
+                "dmgType": "",
+                "stunType": "",
+                "status": false,
                 "steps": [
                     {
                         "type": "SET_PLAYER_ACTION_BLOCK",
                         "blockData": {
-                            "dash": 0,
-                            "action": 0.18,
+                            "dash": 0.05,
+                            "action": 0.22,
                             "move": 0.3,
                             "reaim": 0.4
                         }
                     },
                     {
-                        "charged": false,
-                        "type": "SHOW_THROW_FX"
-                    },
-                    {
-                        "elementProxy": "QUICK",
-                        "type": "SHOOT_PROXY_PLAYER"
-                    },
-                    {
-                        "followUp": "throwEndRev",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwShortRev"
+                        "anim": "attack"
                     },
                     {
-                        "value": 80,
-                        "type": "SET_SPEED"
+                        "duration": 0.1,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "ad-chakramFar"
                     },
                     {
-                        "dir": {
-                            "actorAttrib": "dashDir"
-                        },
-                        "time": 0.1,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.4,
+                        "time": 0.40,
                         "type": "WAIT"
+                    },
+                    {
+                        "type": "LABEL",
+                        "name": "end"
                     }
                 ]
             },
